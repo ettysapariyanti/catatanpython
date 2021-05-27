@@ -24,7 +24,11 @@ s.connect((host, port))
 
 # Menerima data tidak lebih dari 1024 bytes
 
+msg = s.recv(1024)
 
+s.close()
+
+print (msg.decode('ascii'))
 
 ```
 
