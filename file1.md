@@ -12,6 +12,20 @@ import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
+# get local machine name
+
+host = socket.gethostname()
+
+port = 9999
+
+# Koneksi ke hostname dan port
+
+s.connect((host, port))
+
+# Menerima data tidak lebih dari 1024 bytes
+
+
+
 ```
 
 
