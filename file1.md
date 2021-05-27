@@ -33,6 +33,40 @@ print (msg.decode('ascii'))
 ```
 
 
+Contoh Source Code Untuk di sisi server:
+
+```python
+
+# Cara membuat server sederhana
+#!/usr/bin/python3
+
+import socket
+
+# Membuat obyek socket
+
+serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# mendapatkan nama mesin lokal
+
+host = socket.gethostname()
+
+port = 9999
+
+# bind to the port
+
+serversocket.bind((host,port))
+
+# tampilkan hingga 5 request
+
+serversocket.listen(5)
+
+while True:
+
+  # Membangun koneksi
+
+```
+
+
 _Salurkan donasi anda sebesar Rp 10.000 melalui : https://saweria.co/simpananfilepenting
 Terimakasih_
 
