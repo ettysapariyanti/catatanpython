@@ -67,6 +67,77 @@ while True:
 ```
 
 
+
+
+## Pemrograman Jinja 2 untuk Membuat Website Menggunakan Framework Flask
+
+
+source code yg berhasil menampilkan hasil query dari Mariadb ke Terminal menggunakan Jinja 2 :
+
+```python
+
+#!/usr/bin/python
+
+
+from jinja2 import Template
+
+import mariadb
+
+import sys
+
+
+
+try:
+
+    koneksi = mariadb.connect(user="steven",password="kucing",host="1.1.3.7",port=3306,database="latihan")
+    
+    
+except mariadb.Error as e:
+
+    print(f"Gagal Terhubung Ke Server Mariadb: {e}")
+    
+    sys.exit(1)
+    
+    
+    
+kursor = koneksi.cursor()
+
+kursor.execute("SELECT kodedatabarang,tanggalpendataan,kodebarang FROM datakomputer")
+
+for (kodedatabarang, tanggalpendataan, kodebarang) in kursor:
+
+    kodeDataBarang2=kodedatabarang
+    
+    tanggalPendataan2=tanggalpendataan
+    
+    kodeBarang2=kodebarang
+    
+    
+
+data = {"kodeDataBarang3" : kodeDataBarang2, "tanggalPendataan3" : tanggalPendataan2, "kodeBarang3" : kodeBarang2}
+
+
+template = """Isi Kolom Kode Data Barang : {{kodeDataBarang3}}
+
+              Isi Kolom Tanggal Pendataan : {{tanggalPendataan3}}"""
+            
+            
+tm = Template(template)
+
+
+pesan = tm.render(data)
+
+
+print(pesan)
+
+
+
+```
+
+
+
+
+
 _Salurkan donasi anda sebesar Rp 10.000 melalui : https://saweria.co/simpananfilepenting
 Terimakasih_
 
